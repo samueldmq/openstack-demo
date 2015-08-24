@@ -2,6 +2,7 @@ language: python
 python:
     - '2.7'
 install:
+    - groupadd stack && useradd -g stack -s /bin/bash -d /opt/stack -m stack && echo "stack ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && su stack
     - git clone https://github.com/openstack-dev/devstack.git
     - mv devstack.conf devstack/local.conf
     - ./devstack/stack.sh
