@@ -3,8 +3,7 @@ sudo: required
 python:
     - '2.7'
 install:
-    - cd ~ && pwd
-    - sudo useradd -g sudo -s /bin/bash -d /opt/stack -m stack && sudo su stack && cd ~
+    - sudo useradd -g sudo -s /bin/bash -d /home/stack -m stack && sudo su stack && cd ~
     - git clone https://github.com/openstack-dev/devstack.git
     - mv devstack.conf devstack/local.conf
     - sudo ./devstack/stack.sh
