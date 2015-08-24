@@ -5,7 +5,8 @@ python:
 install:
     - sudo groupadd stack
     - sudo useradd -g stack -s /bin/bash -d /opt/stack -m stack
-    - sudo echo "stack ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+    - sudo cat /etc/sudoers
+    - sudo echo 'stack ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
     - su stack
     - cp devstack.conf /opt/stack
     - cd /opt/stack
