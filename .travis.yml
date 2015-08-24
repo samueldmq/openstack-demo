@@ -3,4 +3,6 @@ python:
     - '2.7'
 install:
     - git clone https://github.com/openstack-dev/devstack.git
-script: ls -la
+    - mv devstack.conf devstack/local.conf
+    - ./devstack/stack.sh
+script: wget http://localhost:5000/
