@@ -4,8 +4,9 @@ python:
     - '2.7'
 install:
     - sudo useradd -g sudo -d /opt/stack -s /bin/bash -m stack -p stack
+    - ls -la
+    - echo "opa"
     - sudo su stack
-    - cd ~
     - ls -la
     - git clone https://github.com/openstack-dev/devstack.git && ls -la
     - mv devstack.conf devstack/local.conf
