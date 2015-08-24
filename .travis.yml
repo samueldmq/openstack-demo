@@ -3,12 +3,14 @@ sudo: required
 python:
     - '2.7'
 install:
-    - sudo useradd -g sudo -d /opt/stack -s /bin/bash -m stack -p stack
-    - sudo -u stack cp devstack.conf /opt/stack
+    - sudo groupadd stack
+    - sudo useradd -g stack -s /bin/bash -d /opt/stack -m stack
+    - sudo echo "stack ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+    - su stack
+    - cp devstack.conf /opt/stack
     - cd /opt/stack
-    - sudo -u stack git clone https://github.com/openstack-dev/devstack.git
-    - sudo -u stack ls -la
-    - sudo -u stack mv devstack.conf devstack/local.conf
-    - sudo cat /etc/sudoers
-    - sudo su stack && ./devstack/stack.sh
+    - git clone https://github.com/openstack-dev/devstack.git
+    - ls -la
+    - mv devstack.conf devstack/local.conf
+    - ./devstack/stack.sh
 script: wget http://localhost:5000/
