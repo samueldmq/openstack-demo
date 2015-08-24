@@ -8,6 +8,6 @@ install:
     - cd /opt/stack
     - sudo -u stack git clone https://github.com/openstack-dev/devstack.git
     - sudo -u stack ls -la
-    - sudo -u mv devstack.conf devstack/local.conf
+    - sudo -u stack mv devstack.conf devstack/local.conf
     - sudo -u stack ./devstack/stack.sh
 script: wget http://localhost:5000/
